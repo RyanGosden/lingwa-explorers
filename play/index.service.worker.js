@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1790408452|1620073';
+const CACHE_VERSION = '1790408508|1591538';
 /** @type {string} */
 const CACHE_PREFIX = 'Lingwa Explorers-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
