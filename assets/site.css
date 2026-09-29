@@ -120,10 +120,9 @@ p { margin: 0 0 1em; }
 .scene { position: absolute; inset: 0; z-index: 1; }
 .scene .layer { position: absolute; left: 0; right: 0; background-repeat: repeat-x; }
 .scene .sea { bottom: calc(var(--sand-h) * .6); height: var(--sea-h);
-  background-image: url(img/sea.webp); background-size: auto 100%; animation: drift 90s linear infinite; }
+  background-image: url(img/sea.webp); background-size: auto 100%; }
 .scene .sand { bottom: 0; height: var(--sand-h); background-image: url(img/sand.webp); background-size: auto 100%;
   background-position: 0 0; }
-@keyframes drift { to { background-position-x: -1600px; } }
 
 .sprite { position: absolute; pointer-events: none; user-select: none; -webkit-user-drag: none; }
 .cloud { width: clamp(140px, 18vw, 280px); opacity: .95; animation: float-x linear infinite; }
@@ -141,8 +140,8 @@ p { margin: 0 0 1em; }
 /* Scene objects: decoration only */
 .t-crab { width: clamp(90px, 10vw, 150px); bottom: 12%; left: 60%; }
 .t-crab { position: absolute; z-index: 4; }
-.t-crab .walker { position: relative; width: 100%; animation: walk 16s ease-in-out infinite; }
-@keyframes walk { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-22vw); } }
+.t-crab .walker { position: relative; width: 100%; animation: walk 48s ease-in-out infinite; }
+@keyframes walk { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-12vw); } }
 .t-ball { width: clamp(80px, 9vw, 135px); bottom: 3%; left: 80%; }
 .t-castle { width: clamp(110px, 12vw, 185px); bottom: 7%; left: 11%; }
 .t-bucket { width: clamp(55px, 6vw, 85px); bottom: 4%; left: 27%; }
@@ -229,7 +228,7 @@ p { margin: 0 0 1em; }
 .sunset .waves { position: absolute; z-index: -2; left: 0; right: 0; bottom: 0; height: 70px;
   background: linear-gradient(#1f63b8, #174f97); }
 .sunset .waves::before { content: ""; position: absolute; left: 0; right: 0; top: -18px; height: 20px;
-  background: radial-gradient(22px 14px at 22px 20px, #1f63b8 98%, transparent) 0 0 / 44px 20px repeat-x; animation: drift 30s linear infinite; }
+  background: radial-gradient(22px 14px at 22px 20px, #1f63b8 98%, transparent) 0 0 / 44px 20px repeat-x; }
 
 /* ---------- Inner pages ---------- */
 .page-hero { background: linear-gradient(var(--sky-top), var(--sky-bottom)); padding: 8rem 0 4rem; position: relative; overflow: hidden; }
