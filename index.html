@@ -4,25 +4,202 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lingwa Explorers</title>
-<style>
-  body { max-width: 34rem; margin: 0 auto; padding: 4rem 1.25rem; text-align: center;
-         font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; color: #24202b; }
-  img { width: 140px; height: 140px; border-radius: 30px; }
-  h1 { font-size: 1.8rem; margin: 1.2rem 0 .3rem; }
-  p.lead { color: #55505f; margin-top: 0; }
-  a { color: #00873c; }
-  footer { margin-top: 3rem; font-size: .9rem; color: #6b6676; }
-</style>
+<meta name="description" content="Tap, listen and learn your first words in Maltese and English. A gentle picture-vocabulary game for young children, with no adverts and no tracking.">
+<meta name="theme-color" content="#6fe3ea">
+<link rel="canonical" href="https://lingwaexplorers.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lingwa Explorers">
+<meta property="og:title" content="Lingwa Explorers">
+<meta property="og:description" content="Tap, listen and learn your first words in Maltese and English. A gentle picture-vocabulary game for young children, with no adverts and no tracking.">
+<meta property="og:url" content="https://lingwaexplorers.com/">
+<meta property="og:image" content="https://lingwaexplorers.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/baloo2-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
 </head>
 <body>
-  <img src="icon.png" alt="Lingwa Explorers icon">
-  <h1>Lingwa Explorers</h1>
-  <p class="lead">A bilingual Maltese and English picture-vocabulary game for young children.</p>
-  <!-- Web build not deployed on Cloudflare yet (index.wasm is over the 25 MiB file limit).
-  <p style="margin:1.6rem 0"><a href="play/" style="display:inline-block;background:#00af3c;color:#fff;text-decoration:none;padding:.7rem 1.6rem;border-radius:999px;font-weight:600">Play in your browser</a></p>
-  <p style="font-size:.85rem;color:#6b6676">About 60MB on first load. Works best on a tablet or computer; sound starts after the first tap.</p>
-  -->
-  <p><a href="privacy/">Privacy policy</a></p>
-  <footer>By OctoByte Studios</footer>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Main">
+    <a class="brand" href=""><img src="assets/img/icon-88.webp" alt="" width="44" height="44">Lingwa Explorers</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <ul class="menu" id="menu">
+      <li><a href="" aria-current="page">Home</a></li>
+      <li><a href="about/">About</a></li>
+      <li><a href="contact/">Contact</a></li>
+      <li><a href="privacy/">Privacy</a></li>
+      <li><a class="btn coral small" href="contact/?topic=beta">Join the beta</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main">
+<section class="hero" aria-label="Lingwa Explorers">
+  <div class="scene">
+    <button class="thing cloud c1" data-word="cloud" aria-label="Cloud"><img src="assets/img/cloud-1.webp" alt=""></button>
+    <button class="thing cloud c2" data-word="cloud" aria-label="Cloud"><img src="assets/img/cloud-2.webp" alt=""></button>
+    <img class="sprite cloud c3" src="assets/img/cloud-1.webp" alt="">
+    <button class="thing t-sun" data-word="sun" aria-label="Sun"><img src="assets/img/sun.webp" alt=""></button>
+    <div class="layer sea"></div>
+    <div class="layer sand"></div>
+    <button class="thing t-island" data-word="island" aria-label="Island"><img src="assets/img/island.webp" alt=""></button>
+    <div class="sailboat-wrap"><button class="thing sailboat" style="position:absolute;bottom:0" data-word="boat" aria-label="Boat"><img src="assets/img/sailboat.webp" alt=""></button></div>
+    <button class="thing t-castle" data-word="sand-castle" aria-label="Sand castle"><img src="assets/img/sand-castle.webp" alt=""></button>
+    <button class="thing t-bucket" data-word="bucket" aria-label="Bucket"><img src="assets/img/bucket.webp" alt=""></button>
+    <button class="thing t-shell" data-word="shell" aria-label="Shell"><img src="assets/img/shell.webp" alt=""></button>
+    <button class="thing t-star" data-word="starfish" aria-label="Starfish"><img src="assets/img/starfish.webp" alt=""></button>
+    <div class="t-crab" style="position:absolute;z-index:4"><div class="walker"><button class="thing" style="position:relative;width:100%" data-word="crab" aria-label="Crab"><img src="assets/img/crab.webp" alt=""></button></div></div>
+    <button class="thing t-ball" data-word="beach-ball" aria-label="Beach ball"><img src="assets/img/beach-ball.webp" alt=""></button>
+  </div>
+
+  <div class="hero-copy">
+    <h1>Lingwa Explorers</h1>
+    <p>Tap, listen and learn your first words in Maltese and English, in a hand-drawn world made for little hands.</p>
+    <div class="hero-ctas">
+      <a class="btn coral" href="contact/?topic=beta">Join the beta</a>
+      <a class="btn light" href="#how">How it works</a>
+    </div>
+  </div>
+
+  <div class="word" aria-live="polite"><b></b><span></span></div>
+  <div class="hint">👆 Tap anything on the beach</div>
+  <span class="lang-label">MALTI</span>
+  <button class="lang" data-lang="mt" aria-label="Language: Maltese. Switch to English"><svg class="flag-mt" viewBox="0 0 60 60" aria-hidden="true"><rect width="30" height="60" fill="#fff"/><rect x="30" width="30" height="60" fill="#cf142b"/><g transform="translate(9 14)"><rect width="12" height="12" rx="1" fill="#a9b1b8" stroke="#cf142b" stroke-width="1"/><path d="M6 1.5v9M1.5 6h9" stroke="#e3e7ea" stroke-width="3"/></g></svg><svg class="flag-en" viewBox="0 0 60 60" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><clipPath id="uk"><rect width="60" height="60"/></clipPath><g clip-path="url(#uk)" transform="translate(-30 0) scale(2)"><rect width="60" height="30" fill="#012169"/><path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30M60 0L0 30" stroke="#c8102e" stroke-width="2"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#c8102e" stroke-width="6"/></g></svg></button>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap intro">
+    <div>
+      <p class="eyebrow">A little game for little learners</p>
+      <h2>Every picture says its own name</h2>
+      <p class="lead">Children explore hand-drawn scenes and tap whatever catches their eye. Each object says its name in a real human voice and shows how the word is written, so a child hears the word and sees it at the same time.</p>
+      <p>A flag button switches between Maltese and English at any moment, so the same picture teaches both languages. It's made for children learning Maltese, children learning English, and children growing up with both.</p>
+    </div>
+    <img class="shot" src="assets/shots/explore_beach.webp" alt="The beach scene in Lingwa Explorers, with the word Granċ shown above a crab" width="1024" height="576" loading="lazy">
+  </div>
+
+  <div class="wrap cards">
+    <article class="card">
+      <img class="art" src="assets/img/crab.webp" alt="" loading="lazy">
+      <h3>Explore the scenes</h3>
+      <p>No rules, no timer, no score. Wander the beach or dive under the sea, and tap anything, as often as you like.</p>
+    </article>
+    <article class="card">
+      <img class="art" src="assets/img/starfish.webp" alt="" loading="lazy">
+      <h3>Treasure hunts</h3>
+      <p>Find what the game asks for, by picture, by sound, or by the written word for children beginning to read.</p>
+    </article>
+    <article class="card">
+      <img class="art" src="assets/img/sand-castle.webp" alt="" loading="lazy">
+      <h3>Build your own</h3>
+      <p>Drag things from the tray to make a scene of your own, tap each one to hear its name, and save up to five favourites.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section cream" aria-label="Screenshots">
+  <div class="wrap center">
+    <p class="eyebrow">Take a look</p>
+    <h2>A world to wander</h2>
+  </div>
+  <div class="gallery" tabindex="0" aria-label="Screenshots, scroll sideways">
+    <figure><img src="assets/shots/menu.webp" alt="The main menu at sunset" width="1024" height="576" loading="lazy"><figcaption>Sunset by the sea</figcaption></figure>
+    <figure><img src="assets/shots/explore_beach.webp" alt="Exploring the beach scene" width="1024" height="576" loading="lazy"><figcaption>A day at the beach</figcaption></figure>
+    <figure><img src="assets/shots/explore_underwater.webp" alt="Exploring under the sea" width="1024" height="576" loading="lazy"><figcaption>Under the sea</figcaption></figure>
+    <figure><img src="assets/shots/treasure_hunt.webp" alt="A treasure hunt in progress" width="1024" height="576" loading="lazy"><figcaption>Treasure hunts</figcaption></figure>
+    <figure><img src="assets/shots/build.webp" alt="Building a scene" width="1024" height="576" loading="lazy"><figcaption>Build a scene</figcaption></figure>
+  </div>
+</section>
+
+<section class="section under" aria-label="Words to learn">
+  <div class="swimmer" style="top:14%;animation-duration:38s"><img src="assets/img/fish-1.webp" alt="" style="width:clamp(70px,8vw,120px)"></div>
+  <div class="swimmer rtl" style="top:42%;animation-duration:52s;animation-delay:-20s"><img src="assets/img/fish-5.webp" alt="" style="width:clamp(70px,8vw,120px)"></div>
+  <div class="swimmer" style="top:64%;animation-duration:65s;animation-delay:-40s"><img src="assets/img/dolphin.webp" alt="" style="width:clamp(140px,16vw,240px)"></div>
+  <div class="swimmer rtl" style="top:28%;animation-duration:80s;animation-delay:-10s;opacity:.6"><img src="assets/img/shark.webp" alt="" style="width:clamp(110px,12vw,180px)"></div>
+  <div class="swimmer" style="top:78%;animation-duration:45s;animation-delay:-30s"><img src="assets/img/fish-4.webp" alt="" style="width:clamp(60px,7vw,100px)"></div>
+  <img class="bubble" src="assets/img/bubble.webp" alt="" style="left:12%;animation-duration:9s">
+  <img class="bubble" src="assets/img/bubble.webp" alt="" style="left:47%;animation-duration:12s;animation-delay:-4s;width:18px">
+  <img class="bubble" src="assets/img/bubble.webp" alt="" style="left:83%;animation-duration:10s;animation-delay:-7s">
+  <img class="floor sprite" src="assets/img/seaweed.webp" alt="" style="left:2%;width:clamp(120px,15vw,220px)">
+  <img class="floor sprite" src="assets/img/coral.webp" alt="" style="right:3%;width:clamp(130px,16vw,240px)">
+  <img class="floor sprite" src="assets/img/octopus.webp" alt="" style="left:44%;width:clamp(90px,10vw,150px);bottom:0">
+
+  <div class="narrow center">
+    <p class="eyebrow">Real voices, real words</p>
+    <h2>Words your child will learn</h2>
+    <p class="lead">Everyday things from the world around them, each spoken in Maltese and English by a real voice. Tap a word to hear it.</p>
+    <div class="pairs" style="justify-content:center">
+      <button class="pair" data-word="fish">Fish<em>Ħuta</em></button>
+      <button class="pair" data-word="octopus">Octopus<em>Qarnita</em></button>
+      <button class="pair" data-word="jellyfish">Jellyfish<em>Brama</em></button>
+      <button class="pair" data-word="dolphin">Dolphin<em>Delfin</em></button>
+      <button class="pair" data-word="shark">Shark<em>Kelb il-Baħar</em></button>
+      <button class="pair" data-word="coral">Coral<em>Korall</em></button>
+      <button class="pair" data-word="sun">Sun<em>Xemx</em></button>
+      <button class="pair" data-word="island">Island<em>Gżira</em></button>
+      <button class="pair" data-word="sand-castle">Sand Castle<em>Torri tar-Ramel</em></button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="narrow center">
+      <p class="eyebrow">For grown-ups</p>
+      <h2>Made for small hands, and peace of mind</h2>
+    </div>
+    <div class="promises narrow">
+      <div class="promise"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h3>No adverts</h3><p>Not one, of any kind. Nothing to tap by accident.</p></div></div>
+      <div class="promise"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h3>No accounts or tracking</h3><p>No sign-ins, no analytics, no personal information collected.</p></div></div>
+      <div class="promise"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h3>Works offline</h3><p>No internet connection needed, on a plane or anywhere else.</p></div></div>
+      <div class="promise"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h3>Nothing to get wrong</h3><p>No timers and no scores. A wrong tap simply teaches another word.</p></div></div>
+      <div class="promise"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h3>Big, forgiving targets</h3><p>Everything is sized for a child's finger.</p></div></div>
+      <div class="promise"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><h3>Adjustable for your child</h3><p>Speech volume, background volume and text size are all in the options.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sunset" aria-label="Join the beta">
+  <img class="sprite moon" src="assets/img/moon.webp" alt="">
+  <img class="sprite twinkle" src="assets/img/star.webp" alt="" style="top:18%;right:14%">
+  <img class="sprite twinkle" src="assets/img/star.webp" alt="" style="top:40%;right:6%;width:22px;animation-delay:-1s">
+  <img class="sprite twinkle" src="assets/img/star.webp" alt="" style="top:30%;left:22%;width:18px;animation-delay:-2s">
+  <img class="sprite boat" src="assets/img/fishing-boat.webp" alt="">
+  <div class="waves"></div>
+  <p class="eyebrow" style="color:#ffe39a">Coming soon to Google Play</p>
+  <h2>Help us test Lingwa Explorers</h2>
+  <p>We're looking for families with an Android phone or tablet to try the game before it launches. It's free, and your feedback shapes what comes next.</p>
+  <a class="btn light" href="contact/?topic=beta">Become a tester</a>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href=""><img src="assets/img/icon-88.webp" alt="" width="44" height="44">Lingwa Explorers</a>
+        <p style="max-width:22rem;margin:0">A bilingual Maltese and English picture-vocabulary game for young children.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="about/">About the game</a></li>
+          <li><a href="contact/?topic=beta">Join the beta</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="contact/">Contact us</a></li>
+          <li><a href="privacy/">Privacy policy</a></li>
+          <li><a href="mailto:hello@lingwaexplorers.com">hello@lingwaexplorers.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© <span id="year">2026</span> OctoByte Studios. Made with love for little learners in Malta and beyond.</p>
+  </div>
+</footer>
 </body>
 </html>

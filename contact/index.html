@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Lingwa Explorers</title>
+<meta name="description" content="Get in touch with the Lingwa Explorers team, or sign up to test the game on Android before it launches.">
+<meta name="theme-color" content="#6fe3ea">
+<link rel="canonical" href="https://lingwaexplorers.com/contact/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lingwa Explorers">
+<meta property="og:title" content="Contact — Lingwa Explorers">
+<meta property="og:description" content="Get in touch with the Lingwa Explorers team, or sign up to test the game on Android before it launches.">
+<meta property="og:url" content="https://lingwaexplorers.com/contact/">
+<meta property="og:image" content="https://lingwaexplorers.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/baloo2-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header solid">
+  <nav class="nav wrap" aria-label="Main">
+    <a class="brand" href="../"><img src="../assets/img/icon-88.webp" alt="" width="44" height="44">Lingwa Explorers</a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <ul class="menu" id="menu">
+      <li><a href="../">Home</a></li>
+      <li><a href="../about/">About</a></li>
+      <li><a href="../contact/" aria-current="page">Contact</a></li>
+      <li><a href="../privacy/">Privacy</a></li>
+      <li><a class="btn coral small" href="../contact/?topic=beta">Join the beta</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main">
+<section class="page-hero">
+  <img class="sprite" src="../assets/img/crab.webp" alt="" style="width:clamp(80px,10vw,130px);bottom:2.5rem;right:8%">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h1>Say hello</h1>
+    <p>Questions, feedback, a word we should add, or you'd like to test the game before it launches. We read everything.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:3rem">
+  <div class="wrap contact-grid">
+    <form class="form" action="/api/contact" method="post">
+      <fieldset class="topics">
+        <legend>What's it about?</legend>
+        <label><input type="radio" name="topic" value="beta"> Join the beta</label>
+        <label><input type="radio" name="topic" value="feedback"> Feedback</label>
+        <label><input type="radio" name="topic" value="question" checked> A question</label>
+        <label><input type="radio" name="topic" value="other"> Something else</label>
+      </fieldset>
+
+      <div class="field">
+        <label for="name">Your name</label>
+        <input id="name" name="name" autocomplete="name" required maxlength="100">
+      </div>
+      <div class="field">
+        <label for="email">Your email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required maxlength="200">
+        <small class="beta-only">Use the Google account (usually Gmail) signed in on your Android device. That's the address we add to the test.</small>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required maxlength="5000"></textarea>
+        <small class="beta-only">Optional extras help: your child's age, and whether they're learning Maltese, English or both.</small>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label for="website">Leave this empty</label>
+        <input id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <button class="btn" type="submit">Send message</button>
+      <p style="margin:1rem 0 0;font-size:.9rem;color:var(--muted)">We only use your details to reply. See our <a href="../privacy/#website">privacy policy</a>.</p>
+      <div class="status" role="status" aria-live="polite"></div>
+    </form>
+
+    <aside>
+      <div class="side-card">
+        <h3>Prefer email?</h3>
+        <p>Write to us any time at</p>
+        <p class="mail"><a href="mailto:hello@lingwaexplorers.com">hello@lingwaexplorers.com</a></p>
+      </div>
+      <div class="side-card" style="margin-top:1.2rem;background:var(--teal-soft)">
+        <h3>About the beta</h3>
+        <p>Lingwa Explorers is in a closed test on Google Play before its public launch. Testers get the full game free on Android phones and tablets.</p>
+        <p style="margin:0">After you sign up, we'll email you a link to join the test on Google Play.</p>
+      </div>
+      <img src="../assets/img/beach-ball.webp" alt="" style="width:110px;margin:1.6rem auto 0" loading="lazy">
+    </aside>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/icon-88.webp" alt="" width="44" height="44">Lingwa Explorers</a>
+        <p style="max-width:22rem;margin:0">A bilingual Maltese and English picture-vocabulary game for young children.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li><a href="../about/">About the game</a></li>
+          <li><a href="../contact/?topic=beta">Join the beta</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul>
+          <li><a href="../contact/">Contact us</a></li>
+          <li><a href="../privacy/">Privacy policy</a></li>
+          <li><a href="mailto:hello@lingwaexplorers.com">hello@lingwaexplorers.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© <span id="year">2026</span> OctoByte Studios. Made with love for little learners in Malta and beyond.</p>
+  </div>
+</footer>
+</body>
+</html>

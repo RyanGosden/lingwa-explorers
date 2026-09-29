@@ -1,14 +1,21 @@
-// Cloudflare Workers static-assets deploy of this site at lingwaexplorers.com.
-// Files stay at the repo root so GitHub Pages keeps serving the same content
-// until Play Console points at the new privacy URL. .assetsignore keeps the
-// repo's own files, and play/ (index.wasm is over the 25 MiB per-file limit),
-// out of the upload.
+// Cloudflare Worker for lingwaexplorers.com.
+// The repo root is served as static files; .assetsignore keeps the repo's own
+// files, src/ and play/ (index.wasm is over the 25 MiB per-file limit) out of
+// the upload. src/worker.js only runs when no file matches: it handles the
+// contact form and otherwise serves 404.html.
+// The contact form needs a CONTACT_TO secret (a verified Email Routing
+// destination), set in the dashboard: Worker > Settings > Variables and Secrets.
 {
   "name": "lingwa-explorers",
+  "main": "src/worker.js",
   "compatibility_date": "2026-09-01",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
   },
+  "send_email": [{ "name": "CONTACT" }],
+  "observability": { "enabled": true },
   "routes": [
     { "pattern": "lingwaexplorers.com", "custom_domain": true },
     { "pattern": "www.lingwaexplorers.com", "custom_domain": true }
