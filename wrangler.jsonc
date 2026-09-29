@@ -1,0 +1,16 @@
+// Cloudflare Workers static-assets deploy of this site at lingwaexplorers.com.
+// Files stay at the repo root so GitHub Pages keeps serving the same content
+// until Play Console points at the new privacy URL. .assetsignore keeps the
+// repo's own files, and play/ (index.wasm is over the 25 MiB per-file limit),
+// out of the upload.
+{
+  "name": "lingwa-explorers",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "."
+  },
+  "routes": [
+    { "pattern": "lingwaexplorers.com", "custom_domain": true },
+    { "pattern": "www.lingwaexplorers.com", "custom_domain": true }
+  ]
+}
