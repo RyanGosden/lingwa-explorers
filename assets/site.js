@@ -1,5 +1,5 @@
-// Lingwa Explorers — shared behaviour: the mobile menu, the tappable beach
-// scene on the home page, the word chips, and the contact form.
+// Lingwa Explorers — shared behaviour: the mobile menu, the word chips on the
+// home page, and the contact form.
 
 (() => {
   // ---- Mobile menu ----
@@ -21,30 +21,8 @@
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  // ---- Words: the same names and recordings the game uses ----
-  const WORDS = {
-    crab: ["Crab", "Granċ"],
-    "beach-ball": ["Beach Ball", "Ballun tal-Baħar"],
-    "sand-castle": ["Sand Castle", "Torri tar-Ramel"],
-    bucket: ["Bucket", "Barmil"],
-    starfish: ["Starfish", "Stilla tal-Baħar"],
-    shell: ["Shell", "Arzella"],
-    sun: ["Sun", "Xemx"],
-    island: ["Island", "Gżira"],
-    cloud: ["Cloud", "Sħaba"],
-    boat: ["Boat", "Dgħajsa"],
-    octopus: ["Octopus", "Qarnita"],
-    fish: ["Fish", "Ħuta"],
-    jellyfish: ["Jellyfish", "Brama"],
-    dolphin: ["Dolphin", "Delfin"],
-    shark: ["Shark", "Kelb il-Baħar"],
-    coral: ["Coral", "Korall"],
-    umbrella: ["Umbrella", "Umbrella"],
-  };
-
   // Resolve paths from this script, so pages work at any depth or base URL.
   const BASE = new URL(".", document.currentScript.src).href;
-  let lang = "mt";
   let current = null; // the audio element playing now
   const audioPath = (key, l) => `${BASE}audio/${key}-${l === "mt" ? "mt" : "en"}.mp3`;
 
@@ -53,56 +31,6 @@
     current = new Audio(src);
     current.play().catch(() => {}); // no sound is fine; the word still shows
     return current;
-  }
-
-  // ---- Hero scene ----
-  const hero = document.querySelector(".hero");
-  if (hero) {
-    const card = hero.querySelector(".word");
-    const big = card.querySelector("b");
-    const small = card.querySelector("span");
-    const hint = hero.querySelector(".hint");
-    const langBtn = hero.querySelector(".lang");
-    const langLabel = hero.querySelector(".lang-label");
-    let shown = null;
-    let hideTimer;
-
-    const render = (key) => {
-      const [en, mt] = WORDS[key];
-      big.textContent = lang === "mt" ? mt : en;
-      small.textContent = lang === "mt" ? `${en} in English` : `${mt} in Maltese`;
-    };
-
-    hero.querySelectorAll(".thing").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const key = btn.dataset.word;
-        hero.querySelectorAll(".thing.on").forEach((b) => b.classList.remove("on"));
-        btn.classList.add("on");
-        const img = btn.querySelector("img");
-        img.classList.remove("pop"); void img.offsetWidth; img.classList.add("pop");
-        shown = key;
-        render(key);
-        card.classList.add("show");
-        hint && hint.classList.add("gone");
-        play(audioPath(key, lang));
-        clearTimeout(hideTimer);
-        hideTimer = setTimeout(() => {
-          card.classList.remove("show");
-          btn.classList.remove("on");
-        }, 3500);
-      });
-    });
-
-    langBtn.addEventListener("click", () => {
-      lang = lang === "mt" ? "en" : "mt";
-      langBtn.dataset.lang = lang;
-      langBtn.setAttribute("aria-label", lang === "mt" ? "Language: Maltese. Switch to English" : "Language: English. Switch to Maltese");
-      if (langLabel) langLabel.textContent = lang === "mt" ? "MALTI" : "ENGLISH";
-      if (shown && card.classList.contains("show")) {
-        render(shown);
-        play(audioPath(shown, lang));
-      }
-    });
   }
 
   // ---- Word chips: Maltese first, then English ----
