@@ -1,11 +1,11 @@
 # Lingwa Explorers
 
 Public site for the Lingwa Explorers app, served at https://lingwaexplorers.com
-by a Cloudflare Worker: a landing page with a tappable beach scene, About,
+by a Cloudflare Worker: a landing page with an animated beach scene, About,
 Contact (with a form), and the privacy policy Google Play links to.
 
-The game itself lives in a separate, private repository. The artwork and word
-recordings in `assets/` are web-sized copies of the game's own.
+The game itself lives in a separate, private repository. The artwork in
+`assets/` is web-sized copies of the game's own.
 
 ## Layout
 
@@ -13,8 +13,7 @@ recordings in `assets/` are web-sized copies of the game's own.
   build step. The header and footer are repeated in each page; change them in
   all five.
 - `assets/site.css`, `assets/site.js` — shared styles and behaviour.
-- `assets/img`, `assets/audio`, `assets/shots` — WebP art, MP3 words
-  (`<word>-mt.mp3` / `<word>-en.mp3`), and screenshots.
+- `assets/img`, `assets/shots` — WebP art and screenshots.
 - `src/worker.js` — runs only when no file matches: handles `POST /api/contact`
   and otherwise serves `404.html`.
 - `play/` — the Godot web build, not deployed (see `wrangler.jsonc`).

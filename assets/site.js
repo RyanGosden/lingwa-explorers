@@ -1,5 +1,4 @@
-// Lingwa Explorers — shared behaviour: the mobile menu, the word chips on the
-// home page, and the contact form.
+// Lingwa Explorers — shared behaviour: the mobile menu and the contact form.
 
 (() => {
   // ---- Mobile menu ----
@@ -20,28 +19,6 @@
 
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
-
-  // Resolve paths from this script, so pages work at any depth or base URL.
-  const BASE = new URL(".", document.currentScript.src).href;
-  let current = null; // the audio element playing now
-  const audioPath = (key, l) => `${BASE}audio/${key}-${l === "mt" ? "mt" : "en"}.mp3`;
-
-  function play(src) {
-    if (current) current.pause();
-    current = new Audio(src);
-    current.play().catch(() => {}); // no sound is fine; the word still shows
-    return current;
-  }
-
-  // ---- Word chips: Maltese first, then English ----
-  document.querySelectorAll(".pair[data-word]").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      document.querySelectorAll(".pair.on").forEach((c) => c.classList.remove("on"));
-      chip.classList.add("on");
-      const a = play(audioPath(chip.dataset.word, "mt"));
-      a.addEventListener("ended", () => { if (current === a) play(audioPath(chip.dataset.word, "en")); });
-    });
-  });
 
   // ---- Contact form ----
   const form = document.querySelector("form.form");

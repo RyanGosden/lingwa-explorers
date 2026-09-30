@@ -200,14 +200,6 @@ p { margin: 0 0 1em; }
 .bubble { position: absolute; z-index: -1; bottom: -40px; width: 26px; opacity: .7; animation: rise linear infinite; }
 @keyframes rise { to { transform: translateY(-120vh) translateX(20px); opacity: 0; } }
 
-.pairs { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.6rem; }
-.pair { background: rgb(255 255 255 / .12); border: 1px solid rgb(255 255 255 / .25); border-radius: 999px;
-  padding: .5rem 1rem .45rem; font: 700 1.05rem/1 var(--head); color: #fff; cursor: pointer; transition: background .15s; }
-.pair:hover, .pair.on { background: rgb(255 255 255 / .26); }
-.pair em { font-style: normal; color: #ffd66b; margin-left: .35rem; }
-.section:not(.under) .pair { background: #fff; color: var(--ink); border-color: var(--line); }
-.section:not(.under) .pair em { color: var(--coral-dark); }
-
 /* Promise list */
 .promises { display: grid; gap: 1rem 2rem; grid-template-columns: repeat(2, 1fr); margin-top: 2rem; }
 @media (max-width: 700px) { .promises { grid-template-columns: 1fr; } }
