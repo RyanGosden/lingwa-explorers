@@ -70,7 +70,7 @@
   // Google Analytics is not loaded at all until the visitor accepts (Consent
   // Mode "basic"). The choice is kept in localStorage; "Cookie settings" in the
   // footer reopens the banner. Leave GA_ID empty to switch all of this off.
-  const GA_ID = "";
+  const GA_ID = "G-G9WCGM7QKZ";
   const KEY = "le-analytics-consent";
   const store = {
     get() { try { return localStorage.getItem(KEY); } catch { return null; } },
