@@ -189,9 +189,11 @@ p { margin: 0 0 1em; }
 .under .lead { color: #d6f3fb; }
 .under .eyebrow { color: #ffd66b; }
 .under .swimmer { position: absolute; z-index: -1; animation: swim linear infinite; }
-.under .swimmer img { animation: bob 3s ease-in-out infinite; }
+.under .swimmer img { animation: float 3s ease-in-out infinite; }
 .under .rtl { animation-name: swim-back; }
-.under .rtl img { transform: scaleX(-1); }
+/* Mirrors art drawn facing the other way; `scale` so the float's transform can't undo it. */
+.under .flip img { scale: -1 1; }
+@keyframes float { 50% { transform: translateY(-6px); } }
 @keyframes swim { from { transform: translateX(-30vw); } to { transform: translateX(130vw); } }
 @keyframes swim-back { from { transform: translateX(130vw); } to { transform: translateX(-30vw); } }
 .under .floor { position: absolute; z-index: -1; bottom: -6px; }
