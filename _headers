@@ -1,0 +1,18 @@
+# Cache lengths. File names carry no content hash, so anything that changes
+# (site.css, site.js) keeps a short cache; art, screenshots and fonts rarely do.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/img/*
+  Cache-Control: public, max-age=604800
+/assets/shots/*
+  Cache-Control: public, max-age=604800
+/assets/*.png
+  Cache-Control: public, max-age=604800
+/assets/og.jpg
+  Cache-Control: public, max-age=604800
+/assets/site.css
+  Cache-Control: public, max-age=3600
+/assets/site.js
+  Cache-Control: public, max-age=3600
+/favicon.ico
+  Cache-Control: public, max-age=604800
