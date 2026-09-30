@@ -1,4 +1,5 @@
-// Lingwa Explorers — shared behaviour: the mobile menu and the contact form.
+// Lingwa Explorers — shared behaviour: the mobile menu, the contact form, and
+// the analytics consent banner.
 
 (() => {
   // ---- Mobile menu ----
@@ -63,5 +64,83 @@
         button.textContent = "Send message";
       }
     });
+  }
+
+  // ---- Analytics, only with consent ----
+  // Google Analytics is not loaded at all until the visitor accepts (Consent
+  // Mode "basic"). The choice is kept in localStorage; "Cookie settings" in the
+  // footer reopens the banner. Leave GA_ID empty to switch all of this off.
+  const GA_ID = "";
+  const KEY = "le-analytics-consent";
+  const store = {
+    get() { try { return localStorage.getItem(KEY); } catch { return null; } },
+    set(v) { try { localStorage.setItem(KEY, v); } catch {} },
+  };
+
+  function loadAnalytics() {
+    if (window.gtag) {
+      gtag("consent", "update", { analytics_storage: "granted" });
+      return;
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag("consent", "default", {
+      analytics_storage: "granted",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+    gtag("js", new Date());
+    gtag("config", GA_ID, { allow_google_signals: false, allow_ad_personalization_signals: false });
+    const tag = document.createElement("script");
+    tag.async = true;
+    tag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(tag);
+  }
+
+  // Withdrawing consent: stop collection and remove the cookies GA set.
+  function removeAnalytics() {
+    if (window.gtag) gtag("consent", "update", { analytics_storage: "denied" });
+    const host = location.hostname.replace(/^www\./, "");
+    document.cookie.split(";").map((c) => c.split("=")[0].trim())
+      .filter((name) => name === "_ga" || name.startsWith("_ga_"))
+      .forEach((name) => {
+        for (const domain of ["", `; domain=${host}`, `; domain=.${host}`]) {
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${domain}`;
+        }
+      });
+  }
+
+  function showBanner() {
+    if (document.querySelector(".consent")) return;
+    const root = document.querySelector('link[rel="stylesheet"]').getAttribute("href").replace("assets/site.css", "");
+    const box = document.createElement("div");
+    box.className = "consent";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-label", "Analytics cookies");
+    box.innerHTML = `
+      <p><strong>Can we count your visit?</strong> We'd like to use Google Analytics to see how many people visit and which pages help. It uses cookies, so it only switches on if you say yes. <a href="${root}privacy/#website">Privacy policy</a></p>
+      <div class="consent-buttons">
+        <button class="btn small light" data-choice="denied">No thanks</button>
+        <button class="btn small" data-choice="granted">Accept</button>
+      </div>`;
+    box.addEventListener("click", (e) => {
+      const choice = e.target.closest("[data-choice]")?.dataset.choice;
+      if (!choice) return;
+      store.set(choice);
+      choice === "granted" ? loadAnalytics() : removeAnalytics();
+      box.remove();
+    });
+    document.body.appendChild(box);
+  }
+
+  const settings = document.querySelector(".cookie-settings");
+  if (GA_ID) {
+    const choice = store.get();
+    if (choice === "granted") loadAnalytics();
+    else if (choice !== "denied") showBanner();
+    settings?.addEventListener("click", (e) => { e.preventDefault(); showBanner(); });
+  } else if (settings) {
+    settings.closest("li").remove();
   }
 })();
