@@ -303,5 +303,9 @@ p { margin: 0 0 1em; }
 /* The official Google Play badge. Google's artwork carries its own clear
    space, so the image is larger than the visible badge; do not crop or
    recolour it (Google's badge guidelines). */
-.play-badge { display: inline-block; line-height: 0; border-radius: 12px; }
+.store-badges { display: inline-flex; gap: .8rem; align-items: center; justify-content: center; flex-wrap: wrap; }
+.store-badge { display: inline-block; line-height: 0; border-radius: 12px; }
 .play-badge img { height: 4.6rem; width: auto; margin: -.55rem 0; }
+/* Apple's badge has no built-in margin, unlike Google's; this height makes
+   the two visible badges the same size side by side. */
+.app-store img { height: 3.45rem; width: auto; }
