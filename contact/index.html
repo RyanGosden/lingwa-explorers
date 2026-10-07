@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact and beta sign-up — Lingwa Explorers</title>
-<meta name="description" content="Get in touch with the Lingwa Explorers team, or sign up to test the game on Android before it launches.">
+<title>Contact — Lingwa Explorers</title>
+<meta name="description" content="Get in touch with the Lingwa Explorers team: questions, feedback, or a word we should add.">
 <meta name="theme-color" content="#6fe3ea">
 <link rel="canonical" href="https://lingwaexplorers.com/contact/">
 <meta property="og:url" content="https://lingwaexplorers.com/contact/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lingwa Explorers">
 <meta property="og:locale" content="en_GB">
-<meta property="og:title" content="Contact and beta sign-up — Lingwa Explorers">
-<meta property="og:description" content="Get in touch with the Lingwa Explorers team, or sign up to test the game on Android before it launches.">
+<meta property="og:title" content="Contact — Lingwa Explorers">
+<meta property="og:description" content="Get in touch with the Lingwa Explorers team: questions, feedback, or a word we should add.">
 <meta property="og:image" content="https://lingwaexplorers.com/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -36,7 +36,7 @@
       <li><a href="../about/">About</a></li>
       <li><a href="../contact/" aria-current="page">Contact</a></li>
       <li><a href="../privacy/">Privacy</a></li>
-      <li><a class="btn coral small" href="../contact/?topic=beta">Join the beta</a></li>
+      <li><a class="btn coral small" href="https://play.google.com/store/apps/details?id=com.lingwaexplorers.app">Get the app</a></li>
     </ul>
   </nav>
 </header>
@@ -46,7 +46,7 @@
   <div class="wrap">
     <p class="eyebrow">Contact</p>
     <h1>Say hello</h1>
-    <p>Questions, feedback, a word we should add, or you'd like to test the game before it launches. We read everything.</p>
+    <p>Questions, feedback, or a word we should add. We read everything.</p>
   </div>
 </section>
 
@@ -55,7 +55,6 @@
     <form class="form" action="/api/contact" method="post">
       <fieldset class="topics">
         <legend>What's it about?</legend>
-        <label><input type="radio" name="topic" value="beta"> Join the beta</label>
         <label><input type="radio" name="topic" value="feedback"> Feedback</label>
         <label><input type="radio" name="topic" value="question" checked> A question</label>
         <label><input type="radio" name="topic" value="other"> Something else</label>
@@ -68,12 +67,10 @@
       <div class="field">
         <label for="email">Your email</label>
         <input id="email" name="email" type="email" autocomplete="email" required maxlength="200">
-        <small class="beta-only">Use the Google account (usually Gmail) signed in on your Android device. That's the address we add to the test.</small>
       </div>
       <div class="field">
         <label for="message">Message</label>
         <textarea id="message" name="message" required maxlength="5000"></textarea>
-        <small class="beta-only">Optional extras help: your child's age, and whether they're learning Maltese, English or both.</small>
       </div>
       <div class="hp" aria-hidden="true">
         <label for="website">Leave this empty</label>
@@ -91,9 +88,9 @@
         <p class="mail"><a href="mailto:hello@lingwaexplorers.com">hello@lingwaexplorers.com</a></p>
       </div>
       <div class="side-card" style="margin-top:1.2rem;background:var(--teal-soft)">
-        <h3>About the beta</h3>
-        <p>Lingwa Explorers is in a closed test on Google Play before its public launch. Testers get the full game free on Android phones and tablets.</p>
-        <p style="margin:0">After you sign up, we'll email you a link to join the test on Google Play.</p>
+        <h3>Get the app</h3>
+        <p>Lingwa Explorers is coming to Android phones and tablets on Google Play.</p>
+        <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.lingwaexplorers.app"><img src="../assets/img/google-play-badge.png" alt="Get it on Google Play" width="646" height="250"></a>
       </div>
       <img src="../assets/img/beach-ball.webp" alt="" style="width:110px;margin:1.6rem auto 0" loading="lazy">
     </aside>
@@ -112,7 +109,7 @@
         <ul>
           <li><a href="../">Home</a></li>
           <li><a href="../about/">About the game</a></li>
-          <li><a href="../contact/?topic=beta">Join the beta</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.lingwaexplorers.app">Get it on Google Play</a></li>
         </ul>
       </div>
       <div>
@@ -126,7 +123,8 @@
       </div>
     </div>
     <p class="legal">© <span id="year">2026</span> OctoByte Studios. Made with love for little learners in Malta and beyond.<br>
-    Illustrations: Designed by <a href="https://www.magnific.com">Magnific</a>. Beach backgrounds by <a href="https://craftpix.net">CraftPix</a>.</p>
+    Illustrations: Designed by <a href="https://www.magnific.com">Magnific</a>. Beach backgrounds by <a href="https://craftpix.net">CraftPix</a>.<br>
+    Google Play and the Google Play logo are trademarks of Google LLC.</p>
   </div>
 </footer>
 </body>

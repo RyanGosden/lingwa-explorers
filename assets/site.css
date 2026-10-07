@@ -268,8 +268,6 @@ p { margin: 0 0 1em; }
 .topics label:has(input:checked) { border-color: var(--teal); background: var(--teal-soft); color: var(--teal-dark); }
 @media (max-width: 480px) { .topics { grid-template-columns: 1fr; } }
 .hp { position: absolute; left: -9999px; }
-.beta-only { display: none; }
-.form[data-topic="beta"] .beta-only { display: block; }
 .status { display: none; border-radius: 14px; padding: 1rem 1.1rem; margin-top: 1rem; font-weight: 600; }
 .status.ok { display: block; background: #e5f6ea; color: #1d6b37; }
 .status.err { display: block; background: #fde9e4; color: #9a3421; }
@@ -301,3 +299,9 @@ p { margin: 0 0 1em; }
   .cloud, .sailboat-wrap, .under .swimmer, .bubble { display: none; }
   html { scroll-behavior: auto; }
 }
+
+/* The official Google Play badge. Google's artwork carries its own clear
+   space, so the image is larger than the visible badge; do not crop or
+   recolour it (Google's badge guidelines). */
+.play-badge { display: inline-block; line-height: 0; border-radius: 12px; }
+.play-badge img { height: 4.6rem; width: auto; margin: -.55rem 0; }
