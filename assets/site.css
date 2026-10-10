@@ -115,7 +115,7 @@ p { margin: 0 0 1em; }
 .hero-copy { position: relative; z-index: 6; text-align: center; padding: clamp(6.5rem, 14vh, 9rem) 1rem 0; }
 .hero-copy h1 { color: var(--teal); text-shadow: 0 4px 0 #fff, 0 7px 14px rgb(6 95 105 / .25); margin-bottom: .2em; }
 .hero-copy p { font-size: clamp(1.1rem, 2.2vw, 1.35rem); color: #1d4b52; max-width: 34rem; margin: 0 auto 1.4rem; font-weight: 600; }
-.hero-ctas { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+.hero-ctas { display: flex; flex-direction: column; gap: .8rem; align-items: center; }
 
 .scene { position: absolute; inset: 0; z-index: 1; }
 .scene .layer { position: absolute; left: 0; right: 0; background-repeat: repeat-x; }
@@ -184,7 +184,7 @@ p { margin: 0 0 1em; }
 
 /* Underwater band */
 .under { position: relative; overflow: hidden; color: #fff; isolation: isolate;
-  background: linear-gradient(#27b7d8, var(--deep) 55%, var(--deep-2)); padding: clamp(4.5rem, 10vw, 8rem) 0 clamp(9rem, 16vw, 12rem); }
+  background: linear-gradient(#27b7d8, var(--deep) 55%, var(--deep-2)); padding: clamp(4.5rem, 10vw, 8rem) 0 clamp(10.5rem, 18vw, 14rem); }
 .under h2, .under h3 { color: #fff; }
 .under .lead { color: #d6f3fb; }
 .under .eyebrow { color: #ffd66b; }
@@ -197,6 +197,14 @@ p { margin: 0 0 1em; }
 @keyframes swim { from { transform: translateX(-30vw); } to { transform: translateX(130vw); } }
 @keyframes swim-back { from { transform: translateX(130vw); } to { transform: translateX(-30vw); } }
 .under .floor { position: absolute; z-index: -1; bottom: -6px; }
+/* Two copies of the one drawing, split just under the head: the top stays put
+   and the bottom skews about the split line, so only the tentacles sway and
+   the join never shows. */
+.under .octopus { bottom: clamp(1rem, 2.5vw, 2rem); pointer-events: none; user-select: none; }
+.octopus img { display: block; width: 100%; height: auto; clip-path: inset(0 0 57% 0); -webkit-user-drag: none; }
+.octopus .arms { position: absolute; inset: 0; clip-path: inset(42.8% 0 0 0); transform-origin: 50% 42.8%;
+  animation: sway 4.5s ease-in-out infinite alternate; }
+@keyframes sway { from { transform: skewX(-3deg); } to { transform: skewX(3deg); } }
 .bubble { position: absolute; z-index: -1; bottom: -40px; width: 26px; opacity: .7; animation: rise linear infinite; }
 @keyframes rise { to { transform: translateY(-120vh) translateX(20px); opacity: 0; } }
 
@@ -297,6 +305,7 @@ p { margin: 0 0 1em; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0s !important; }
   .cloud, .sailboat-wrap, .under .swimmer, .bubble { display: none; }
+  .octopus .arms { animation: none; }
   html { scroll-behavior: auto; }
 }
 
